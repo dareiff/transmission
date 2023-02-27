@@ -86,8 +86,6 @@ button {
   --color-progressbar-leech-1: #{$blue-300};
   --color-progressbar-seed-paused-1: #{$grey-200};
   --color-progressbar-seed-queued-1: #{$green-100};
-  --color-progressbar-seed-1: #{$green-300};
-  --color-progressbar-seed-2: #{$green-200};
 
   color-scheme: light dark;
 
@@ -115,6 +113,8 @@ button {
     --color-bg-tabs: #{$grey-700};
     --color-progressbar-background-1: #426389;
     --color-default-border: #{$default-border-dark};
+    --color-progressbar-seed-1: #{$green-500};
+    --color-progressbar-seed-2: #{$green-300};
   }
 
   @media (prefers-color-scheme: light) {
@@ -141,6 +141,8 @@ button {
     --color-progressbar-background-1: #{$nice-grey};
     --color-default-border: #{$default-border-light};
     --color-dialog-border: #{$nice-grey};
+    --color-progressbar-seed-1: #{$green-300};
+    --color-progressbar-seed-2: #{$green-200};
   }
 }
 
