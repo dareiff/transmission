@@ -113,6 +113,7 @@ $image-play-circle-idle: '../img/play-circle-idle.svg';
     --color-progressbar-seed-1: #{$green-500};
     --color-progressbar-seed-2: #{$green-300};
   }
+
   @media (prefers-color-scheme: light) {
     --color-bg-hover: #{$nice-grey};
     --color-fg-primary: #404040;
@@ -287,7 +288,7 @@ $toolbar-height: $toolbar-height-number * 1px;
   @include for-phone-only {
     padding: 5px 10px;
 
-    :not(select):not(input):not(option) {
+    :not(select, input, option) {
       display: none;
     }
 
@@ -501,6 +502,7 @@ $video-image: '../img/film.svg';
     &:not(.compact) {
       $icon-size-num: 32;
       $icon-size: $icon-size-num * 1px;
+
       align-items: center;
       display: grid;
       grid-column-gap: 12px;
@@ -672,6 +674,7 @@ $video-image: '../img/film.svg';
   @include for-phone-only {
     left: 0;
   }
+
   @include for-tablet-portrait-up {
     border-left: 1px solid var(--color-default-border);
     width: 570px;
@@ -680,6 +683,7 @@ $video-image: '../img/film.svg';
 
 #prefs-dialog {
   $background-color: var(--color-inspector-background);
+
   background: $background-color;
   border: 0;
   bottom: 0;
@@ -691,8 +695,7 @@ $video-image: '../img/film.svg';
   z-index: $z-index-popup;
 
   .tabs-page {
-    grid-column-gap: 8px;
-    grid-row-gap: 5px;
+    grid-gap: 5px 8px;
     grid-template-columns: 1fr 1fr;
     margin: 20px;
 
@@ -703,6 +706,7 @@ $video-image: '../img/film.svg';
     .section-label {
       font-weight: bold;
       grid-column: span 2;
+
       // margin-left: -20px;
       padding-bottom: 5px;
 
@@ -779,6 +783,7 @@ $video-image: '../img/film.svg';
   .alt-speed-label {
     font-size: smaller;
     font-style: lighter;
+
     // nudge it up next to the section label
     margin: -10px 0 10px;
   }
@@ -836,9 +841,11 @@ $video-image: '../img/film.svg';
   right: 0;
   top: $popup-top;
   z-index: $z-index-popup;
+
   @include for-phone-only {
     left: 0;
   }
+
   @include for-tablet-portrait-up {
     width: 550px;
   }
@@ -865,9 +872,11 @@ $video-image: '../img/film.svg';
   flex: 1;
   overflow-x: hidden;
   overflow-y: auto;
+
   @include for-phone-only {
     padding: 0 8px 20px;
   }
+
   @include for-tablet-portrait-up {
     padding: 0 20px 20px;
   }
@@ -892,16 +901,16 @@ $video-image: '../img/film.svg';
 /// INSPECTOR
 
 #inspector {
-  box-shadow: 0 3px 6px rgba(58, 58, 58, 0.7);
+  box-shadow: 0 3px 6px rgb(58 58 58 / 70%);
 }
 
 .inspector-info-page {
   font-size: 14px;
+
   // TODO: this is (mostly) copied from prefs-dialog.
   // can it be folded into a single set of rules?
 
-  grid-column-gap: 8px;
-  grid-row-gap: 8px;
+  grid-gap: 8px;
   grid-template-columns: auto 1fr;
   margin: 20px;
   padding: 12px;
@@ -935,7 +944,6 @@ $video-image: '../img/film.svg';
 .inspector-info-magnet {
   button {
     background-color: var(--color-border);
-
     background-position: top;
     background-repeat: no-repeat;
     border: 0;
@@ -1022,8 +1030,7 @@ $video-image: '../img/film.svg';
   .tier-list-row {
     display: grid;
     font-size: 12px;
-    grid-column-gap: 8px;
-    grid-row-gap: 4px;
+    grid-gap: 4px 8px;
     margin-top: 8px;
   }
 
@@ -1079,6 +1086,7 @@ $video-image: '../img/film.svg';
   td {
     border: $table-border;
     color: var(--color-fg-secondary);
+
     // padding: 5px 10px;
   }
 
@@ -1126,9 +1134,11 @@ $video-image: '../img/film.svg';
     overflow-x: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+
     @include for-phone-only {
       display: none;
     }
+
     @include for-tablet-portrait-up {
       width: 25%;
     }
@@ -1175,7 +1185,7 @@ $video-image: '../img/film.svg';
     border-left-width: 0;
   }
 
-  //if input is checked then change the background color
+  // if input is checked then change the background color
   > .checked {
     background-color: var(--color-bg-hover);
   }
@@ -1185,9 +1195,10 @@ $video-image: '../img/film.svg';
 
 .context-menu {
   $disabled-color: var(--color-fg-disabled);
+
   background-color: var(--color-bg-primary);
   border-radius: 5px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 3px 6px rgb(0 0 0 / 70%);
   color: var(--color-fg-on-popup);
   padding: 10px 5px;
   position: absolute;
@@ -1239,12 +1250,11 @@ $video-image: '../img/film.svg';
   -webkit-overflow-scrolling: touch;
   padding: 10px;
   position: absolute;
-
   right: 20px;
   top: 50px;
   z-index: $z-index-popup;
 
-  @include for-phone-only() {
+  @include for-phone-only {
     height: 80vh;
   }
 
@@ -1338,8 +1348,7 @@ $video-image: '../img/film.svg';
 
     .alt-speed {
       display: grid;
-      grid-column-gap: 5px;
-      grid-row-gap: 5px;
+      grid-gap: 5px;
       grid-template-areas:
         'check   lb'
         'turtle  values';
@@ -1391,7 +1400,7 @@ $logo-size: 64px;
   }
 
   .dialog-container {
-    opacity: 96%;
+    opacity: 0.96;
     position: absolute;
     top: $popup-top;
     width: 100%;
@@ -1407,6 +1416,7 @@ $logo-size: 64px;
     flex-direction: column;
   }
 }
+
 @include for-tablet-portrait-up {
   .dialog-container {
     min-width: 400px;
@@ -1477,7 +1487,7 @@ dialog {
   padding: 0;
   z-index: $z-index-popup;
 
-  @include for-tablet-portrait-up() {
+  @include for-tablet-portrait-up {
     border: 0;
     border-radius: 8px;
     max-width: 50%;
@@ -1594,6 +1604,7 @@ dialog {
     @include for-phone-only {
       margin: 4px 0 16px;
     }
+
     @include for-tablet-portrait-up {
       margin: 4px 16px 16px;
     }
