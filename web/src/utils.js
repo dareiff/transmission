@@ -53,6 +53,20 @@ function toggleClass(buttons, button, pages, page, callback) {
   }
 }
 
+export function obfuscateTorrents() {
+  const torrents = document.querySelectorAll('.torrent-name');
+  const restoreName = (torrent) => {
+    console.log('restoreName', torrent.originalName);
+    torrent.textContent = torrent.originalName;
+  };
+
+  for (const torrent of torrents) {
+    torrent.originalName = torrent.textContent;
+    torrent.textContent = 'Obfuscated Name';
+    setTimeout(restoreName, 5000, torrent);
+  }
+}
+
 export function createTextualTabsContainer(id, tabs, callback) {
   const root = document.createElement('div');
   root.id = id;

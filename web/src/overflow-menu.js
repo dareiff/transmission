@@ -443,6 +443,7 @@ export class OverflowMenu extends EventTarget {
       'show-about-dialog',
       'show-shortcuts-dialog',
       'show-statistics-dialog',
+      'obfuscate-torrents',
     ]) {
       const text = this.action_manager.text(action_name);
       actions[action_name] = make_button(options, text, action_name, on_click);

@@ -1,7 +1,7 @@
 /* @license This file Copyright © 2020-2023 Mnemosyne LLC.
-   It may be used under GPLv2 (SPDX: GPL-2.0-only), GPLv3 (SPDX: GPL-3.0-only),
-   or any future license endorsed by Mnemosyne LLC.
-   License text can be found in the licenses/ folder. */
+It may be used under GPLv2 (SPDX: GPL-2.0-only), GPLv3 (SPDX: GPL-3.0-only),
+or any future license endorsed by Mnemosyne LLC.
+License text can be found in the licenses/ folder. */
 
 export class ActionManager extends EventTarget {
   constructor() {
@@ -16,6 +16,11 @@ export class ActionManager extends EventTarget {
       'move-down': { enabled: false, text: 'Move down in the queue' },
       'move-top': { enabled: false, text: 'Move to the front of the queue' },
       'move-up': { enabled: false, text: 'Move up in the queue' },
+      'obfuscate-torrents': {
+        enabled: true,
+        shortcut: 'Control+Y',
+        text: 'Obfuscate data',
+      },
       'open-torrent': {
         enabled: true,
         shortcut: 'Control+O',
@@ -61,7 +66,7 @@ export class ActionManager extends EventTarget {
       'show-overflow-menu': { enabled: true, text: 'More options…' },
       'show-preferences-dialog': {
         enabled: true,
-        shortcut: 'Control+P',
+        shortcut: 'Control+;',
         text: 'Edit preferences',
       },
       'show-rename-dialog': {

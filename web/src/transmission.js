@@ -29,6 +29,7 @@ import {
   setEnabled,
   setTextContent,
   movePopup,
+  obfuscateTorrents,
 } from './utils.js';
 
 export class Transmission extends EventTarget {
@@ -40,6 +41,7 @@ export class Transmission extends EventTarget {
     this.notifications = notifications;
     this.prefs = prefs;
     this.remote = new Remote(this);
+    this.obfuscated = false;
 
     this.addEventListener('torrent-selection-changed', (event_) =>
       this.action_manager.update(event_)
@@ -188,6 +190,9 @@ export class Transmission extends EventTarget {
           break;
         case 'verify-selected-torrents':
           this._verifyTorrents(this.getSelectedTorrents());
+          break;
+        case 'obfuscate-torrents':
+          obfuscateTorrents();
           break;
         default:
           console.warn(`unhandled action: ${event_.action}`);
