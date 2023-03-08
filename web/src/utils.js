@@ -54,16 +54,23 @@ function toggleClass(buttons, button, pages, page, callback) {
 }
 
 export function obfuscateTorrents() {
+  const distro = ['Ubuntu', 'Debian', 'Fedora', 'Gentoo', 'Elementary'];
+  function distroName() {
+    return `
+      ${distro[Math.floor(Math.random() * distro.length)]} 
+      ${Math.floor(Math.random() * 10)}.${Math.floor(Math.random() * 10)}.iso
+  `;
+  }
+
   const torrents = document.querySelectorAll('.torrent-name');
   const restoreName = (torrent) => {
-    console.log('restoreName', torrent.originalName);
     torrent.textContent = torrent.originalName;
   };
 
   for (const torrent of torrents) {
     torrent.originalName = torrent.textContent;
-    torrent.textContent = 'Obfuscated Name';
-    setTimeout(restoreName, 5000, torrent);
+    torrent.textContent = distroName();
+    setTimeout(restoreName, 10_000, torrent);
   }
 }
 
