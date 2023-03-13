@@ -94,6 +94,9 @@ Prefs.AltSpeedEnabled = 'alt-speed-enabled';
 Prefs.DisplayCompact = 'compact';
 Prefs.DisplayFull = 'full';
 Prefs.DisplayMode = 'display-mode';
+Prefs.DarkMode = 'dark';
+Prefs.LightMode = 'light';
+Prefs.ColorMode = 'color-mode';
 Prefs.FilterActive = 'active';
 Prefs.FilterAll = 'all';
 Prefs.FilterDownloading = 'downloading';
@@ -124,4 +127,5 @@ Prefs._Defaults = {
   [Prefs.RefreshRate]: 5,
   [Prefs.SortDirection]: Prefs.SortAscending,
   [Prefs.SortMode]: Prefs.SortByName,
+  [Prefs.ColorMode]: Prefs.LightMode,
 };

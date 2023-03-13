@@ -76,6 +76,7 @@ export class ActionManager extends EventTarget {
         text: 'Statistics',
       },
       'start-all-torrents': { enabled: false, text: 'Start all' },
+      'toggle-color-mode': { enabled: true, text: 'Toggle color mode' },
       'toggle-compact-rows': { enabled: true, text: 'Compact rows' },
       'trash-selected-torrents': {
         enabled: false,

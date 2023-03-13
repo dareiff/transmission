@@ -60,6 +60,21 @@ export class Transmission extends EventTarget {
       200
     );
 
+    if (this.prefs.color_mode === 'dark') {
+      document.body.classList.add('dark');
+      document.querySelector('#toolbar-color-scheme').classList.add('dark');
+    }
+
+    document
+      .querySelector('#toolbar-color-scheme')
+      .addEventListener('click', () => {
+        document
+          .querySelector('#toolbar-color-scheme')
+          .classList.toggle('dark');
+        document.body.classList.toggle('dark');
+        this.action_manager.click('toggle-color-mode', 'light');
+      });
+
     // listen to actions
     // TODO: consider adding a mutator listener here to see dynamic additions
     for (const element of document.querySelectorAll(`button[data-action]`)) {
@@ -188,6 +203,12 @@ export class Transmission extends EventTarget {
           break;
         case 'verify-selected-torrents':
           this._verifyTorrents(this.getSelectedTorrents());
+          break;
+        case 'toggle-color-mode':
+          this.prefs.color_mode =
+            this.prefs.color_mode === Prefs.LightMode
+              ? Prefs.DarkMode
+              : Prefs.LightMode;
           break;
         default:
           console.warn(`unhandled action: ${event_.action}`);
