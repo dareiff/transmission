@@ -61,7 +61,8 @@ export class Transmission extends EventTarget {
     );
 
     if (this.prefs.color_mode === 'dark') {
-      document.body.classList.add('dark');
+      document.documentElement.dataset.colorScheme = 'dark';
+
       document.querySelector('#toolbar-color-scheme').classList.add('dark');
     }
 
@@ -71,7 +72,10 @@ export class Transmission extends EventTarget {
         document
           .querySelector('#toolbar-color-scheme')
           .classList.toggle('dark');
-        document.body.classList.toggle('dark');
+        document.documentElement.dataset.colorScheme =
+          document.documentElement.dataset.colorScheme === 'dark'
+            ? 'light'
+            : 'dark';
         this.action_manager.click('toggle-color-mode', 'light');
       });
 

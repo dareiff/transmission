@@ -38,7 +38,7 @@ export class Remote {
     }
 
     let response_argument = null;
-    fetch(RPC._Root, {
+    fetch('http://localhost:9091/transmission/rpc', {
       body: JSON.stringify(data),
       headers,
       method: 'POST',
