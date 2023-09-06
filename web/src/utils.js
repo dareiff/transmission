@@ -53,6 +53,16 @@ function toggleClass(buttons, button, pages, page, callback) {
   }
 }
 
+export function readRefreshIntervalFromLocalStorage() {
+  const value = localStorage.getItem('refresh-interval');
+  console.log(value);
+  if (value === null) {
+    return 3000;
+  }
+  console.log(Number.parseInt(value, 10));
+  return Number.parseInt(value, 10);
+}
+
 export function createTextualTabsContainer(id, tabs, callback) {
   const root = document.createElement('div');
   root.id = id;

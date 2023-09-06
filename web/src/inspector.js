@@ -6,7 +6,12 @@
 import { FileRow } from './file-row.js';
 import { Formatter } from './formatter.js';
 import { Torrent } from './torrent.js';
-import { Utils, createTextualTabsContainer, setTextContent } from './utils.js';
+import {
+  Utils,
+  createTextualTabsContainer,
+  readRefreshIntervalFromLocalStorage,
+  setTextContent,
+} from './utils.js';
 
 const peer_column_classes = [
   'encryption',
@@ -26,7 +31,10 @@ export class Inspector extends EventTarget {
     this.controller = controller;
     this.elements = this._create();
     this.current_page = this.elements.info.root;
-    this.interval = setInterval(this._refreshTorrents.bind(this), 3000);
+    this.interval = setInterval(
+      this._refreshTorrents.bind(this),
+      readRefreshIntervalFromLocalStorage(),
+    );
     this.name = 'inspector';
     this.selection_listener = (event_) => this._setTorrents(event_.selected);
     this.torrent_listener = () => this._updateCurrentPage();
